@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Game Records</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Impact&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-wrapper">
+        <a href="https://zu38.github.io/id" class="next-button">
+            <button type="button">Agent Link</button>
+        </a>
+         
+        <a href="https://zu38.github.io/pid" class="next-button1">
+            <button type="button">Player Link</button>
+        </a>
+        <div class="form-container" id="form-container">
+            <h1> Game Records</h1>
+            <form action="https://script.google.com/macros/s/AKfycbwmzb28qBPMOLBJ0wpxR8LpqzEnSmAZQma055PP1O6WAzWsIEGNzY19Xp26hAv6ggcg/exec" method="POST">
+                <label for="player_name">Player's Name:</label>
+                <input type="text" id="player_name" name="player_name" required>
+
+                <label for="cashtag">Player's Cashtag:</label>
+                <input type="text" id="cashtag" name="cashtag" required>
+
+                <label for="game">Game:</label>
+                <select id="game" name="game" required>
+                    <option value="juwa">Juwa</option>
+                    <option value="gamevault">Gamevault</option>
+                    <option value="firekirin">Firekirin</option>
+                    <option value="pandamaster">Pandamaster</option>
+                    <option value="orionstar">Orionstar</option>
+                    <option value="gameroom">Gameroom</option>
+                    <option value="vblink">Vblink</option>
+                    <option value="vegasweep">Vegasweep</option>
+                    <option value="riversweep">Riversweep</option>
+                    <option value="yolo">Yolo</option>
+                    <option value="milkyway">Milkyway</option>
+                </select>
+
+                <label for="cashin">Cashin:</label>
+                <input type="number" id="cashin" name="cashin" required>
+
+                <label for="cashout">Cashout:</label>
+                <input type="number" id="cashout" name="cashout" required>
+
+                <label for="employee">Employee:</label>
+                <select id="employee" name="employee" required>
+                    <option value="mr_ethical">Mr Ethical</option>
+                    <option value="issagi">Issagi</option>
+                    <option value="clean_sea">Clean Sea</option>
+                </select>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="remarks">Remarks:</label>
+                <textarea id="remarks" name="remarks" class="remarks-field"></textarea>
+
+                <label for="record_from">Record from:</label>
+                <select id="record_from" name="record_from" required>
+                    <option value="kasey">Kasey</option>
+                    <option value="others">Others</option>
+                </select>
+
+                <input type="submit" value="Submit">
+                
+            </form>
+             <a href="https://zu38.github.io/wr" >
+            Invoice
+        </a>
+            <a href="https://docs.google.com/spreadsheets/d/1doU_kq3bi3WawjvqLu-Eyk3RxQmRvecezJ7iJvba1bU/edit?usp=sharing" >
+            View Records
+        </a>
+             <div class="learn-more" onclick="showPopup()">Learn More...</div>
+        </div>
+        </div>
+       
+    </div>
+    
+
+    <script>
+        window.onload = function () {
+            document.getElementById("form-container").classList.add("show");
+        };
+
+        function showPopup() {
+            alert("Hello, I am Mr. Beluga. This backend is designed and distributed by me. If you need a similar backend, you can contact me. It costs only $5 per month. This module includes everything you need to run your casino, such as generating web receipts, storing records in a spreadsheet, and full automation. I can also design a website for your gaming platform and perform SEO to boost your pages.");
+        }
+        window.onload = function () {
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0];
+            document.getElementById("date").value = formattedDate;
+            const hours = String(today.getHours()).padStart(2, '0');
+            const minutes = String(today.getMinutes()).padStart(2, '0');
+            document.getElementById("time").value = `${hours}:${minutes}`;
+            document.getElementById("form-container").classList.add("show");
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const submitButton = form.querySelector('input[type="submit"]');
+            let isFormSubmitted = false;
+
+            form.addEventListener("submit", function (event) {
+                if (isFormSubmitted) {
+                    event.preventDefault();
+                    return;
+                }
+                isFormSubmitted = true;
+                submitButton.disabled = true;
+                submitButton.value = "Submitting...";
+            });
+
+            submitButton.addEventListener("touchstart", function (event) {
+                if (isFormSubmitted) {
+                    event.preventDefault();
+                }
+            });
+
+            submitButton.addEventListener("click", function (event) {
+                if (isFormSubmitted) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
