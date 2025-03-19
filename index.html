@@ -6,7 +6,119 @@ l<!DOCTYPE html>
     <title> Game Records</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Impact&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-      
+      <style>
+          .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #4a90e2, #2c6cb0);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #5aa0f0, #3b7cc0);
+}
+
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.learn-more {
+    text-align: center;
+    margin: 30px auto;
+    color: #4a90e2;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    position: relative;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-decoration: underline;
+}
+
+.learn-more:hover {
+    color: #2c6cb0;
+    transform: scale(1.05);
+}
+
+/* Optional: Add animated arrow on hover for "Learn More" */
+.learn-more::after {
+    content: '↓';
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover::after {
+    opacity: 1;
+    right: -25px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+/* Add this new container style */
+.button-section {
+    background: #f5f7fa;  /* Same as previous body suggestion */
+    padding: 40px 20px;
+    margin: 40px 0;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* If you want a double background effect */
+.button-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(145deg, #ffffff, #e0e5ec);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+/* Keep your existing button styles */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+      </style>
 </head>
 <body>
     <div class="form-wrapper">
