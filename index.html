@@ -8,14 +8,20 @@ l<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
       <style>
-          /* ===== Modern Button Styling ===== */
-/* ===== Raining Background Effect ===== */
+         /* ===== Base Styles ===== */
 .button-section {
     position: relative;
+    padding: 4rem 2rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(143,143,143,0.1);
+    border: 1px solid rgba(255,255,255,0.5);
     overflow: hidden;
-    background: linear-gradient(135deg, #f0f4f8 0%, #dfe6ed 100%);
 }
 
+/* ===== Raining Effect ===== */
 .rain {
     position: absolute;
     top: -100%;
@@ -36,60 +42,24 @@ l<!DOCTYPE html>
 }
 
 @keyframes fall {
-    0% {
-        transform: translateY(-100%) translateX(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(100vh) translateX(30px);
-        opacity: 0;
-    }
+    0% { transform: translateY(-100%) translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(30px); opacity: 0; }
 }
 
-/* Responsive Rain Density */
-@media (max-width: 768px) {
-    .drop {
-        height: 40px;
-        width: 1.5px;
-        animation-duration: 1.2s !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .drop {
-        height: 30px;
-        width: 1px;
-        animation-duration: 1s !important;
-    }
-}
-
-/* ===== Updated Button Styles ===== */
-.button-section {
-    padding: 4rem 2rem;
-    margin: 4rem auto;
-    max-width: 1200px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(143,143,143,0.1);
-    border: 1px solid rgba(255,255,255,0.5);
-}
-
+/* ===== Button Container ===== */
 .button-container {
-    position: relative;
-    z-index: 2;
     display: flex;
     flex-wrap: wrap;
     gap: 1.2rem;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
+/* ===== Main Button Styles ===== */
 .nav-button {
-    /* Previous button styles remain the same */
     position: relative;
     padding: 1.2rem 2.8rem;
     background: linear-gradient(135deg, #ff7b7b 0%, #ff5252 100%);
@@ -108,12 +78,85 @@ l<!DOCTYPE html>
     overflow: hidden;
 }
 
-/* Previous button hover/active states and color variations remain same */
+.nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
 
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255,123,123,0.25);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4040 100%);
+}
+
+.nav-button:hover::before {
+    left: 100%;
+}
+
+.nav-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(255,123,123,0.2);
+}
+
+/* ===== Color Variations ===== */
+.nav-button:nth-child(2) { background: linear-gradient(135deg, #6c5ce7 0%, #4b37d6 100%); box-shadow: 0 4px 6px rgba(108,92,231,0.15); }
+.nav-button:nth-child(2):hover { background: linear-gradient(135deg, #5b4ad6 0%, #3a26c5 100%); }
+
+.nav-button:nth-child(3) { background: linear-gradient(135deg, #00b894 0%, #009d7a 100%); box-shadow: 0 4px 6px rgba(0,184,148,0.15); }
+.nav-button:nth-child(3):hover { background: linear-gradient(135deg, #00a783 0%, #008b69 100%); }
+
+.nav-button:nth-child(4) { background: linear-gradient(135deg, #fdcb6e 0%, #f9a825 100%); box-shadow: 0 4px 6px rgba(253,203,110,0.15); }
+.nav-button:nth-child(4):hover { background: linear-gradient(135deg, #f5b747 0%, #e69500 100%); }
+
+.nav-button:nth-child(5) { background: linear-gradient(135deg, #e84393 0%, #c23678 100%); box-shadow: 0 4px 6px rgba(232,67,147,0.15); }
+.nav-button:nth-child(5):hover { background: linear-gradient(135deg, #d73282 0%, #b12567 100%); }
+
+.nav-button:nth-child(6) { background: linear-gradient(135deg, #00cec9 0%, #00a8a3 100%); box-shadow: 0 4px 6px rgba(0,206,201,0.15); }
+.nav-button:nth-child(6):hover { background: linear-gradient(135deg, #00b5b0 0%, #00918d 100%); }
+
+/* ===== Learn More Button ===== */
 .learn-more {
+    display: inline-block;
+    margin: 2.5rem auto 0;
+    padding: 0.8rem 2.2rem;
+    color: #6c5ce7;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.9);
+    border: 2px solid rgba(108,92,231,0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 8px rgba(108,92,231,0.08);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     position: relative;
     z-index: 2;
-    /* Rest of learn-more styles remain same */
+}
+
+.learn-more:hover {
+    background: rgba(108,92,231,0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108,92,231,0.12);
+    color: #4b37d6;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .nav-button { width: 100%; max-width: 300px; }
+    .button-section { padding: 2rem 1rem; margin: 2rem auto; }
+    .drop { height: 40px; width: 1.5px; animation-duration: 1.2s !important; }
+}
+
+@media (max-width: 480px) {
+    .drop { height: 30px; width: 1px; animation-duration: 1s !important; }
 }
       </style>
 </head>
